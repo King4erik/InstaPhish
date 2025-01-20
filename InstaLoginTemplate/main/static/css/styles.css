@@ -1,0 +1,46 @@
+.instagram-logo {
+    height: 80px;
+    width: 200px;
+}
+.facebook-logo {
+    height: 32px;
+    width: 32px;
+    margin-top: center;
+}
+.facebook-txt {
+    height: 50px
+    font-size: 14px;
+    color: #0095f6;
+    margin-top: auto;
+}
+.signup-txt {
+    color: #0095f6;
+}
+.forgot-pass-txt {
+    color: rgb(0, 55, 107)
+}
+.or-txt {
+    color: rgb(115, 115, 115)
+}
+.microsoft-store-logo {
+    background-position: -132px -182px;
+    height: 40px;
+    width: 116px;
+}
+.google-store-logo {
+    height: 42px;
+    width: 130px;
+}
+.show-password {
+    display: none; /* Initially hidden */
+    cursor: pointer;
+    color: grey; /* Change color as needed */
+    position: absolute; /* Position it absolutely */
+    right: 10px; /* Adjust as needed */
+    top: 50%; /* Center vertically */
+    font-size: 0.875rem;
+    transform: translateY(-50%); /* Adjust for vertical centering */
+}
+.relative {
+    position: relative; /* Make the parent relative for absolute positioning */
+}
