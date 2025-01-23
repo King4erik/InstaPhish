@@ -3,20 +3,6 @@
     height: 70px; /* Maintain aspect ratio */
 }
 
-.facebook-logo {
-    height: 30px; /* Adjusted size for visibility */
-    width: 30px; /* Adjusted size for visibility */
-}
-
-.facebook-txt {
-    font-size: 14px;
-    color: #0095f6;
-}
-
-.facebook-txt:hover {
-    color: #00376b; /* Darker blue on hover */
-}
-
 .signup-txt {
     color: #0095f6;
 }
@@ -24,10 +10,6 @@
 .forgot-pass-txt {
     color: #00376b; /* Changed color to #00376b */
     font-size: 16px; /* Increased font size */
-}
-
-.or-txt {
-    color: rgb(115, 115, 115);
 }
 
 .microsoft-store-logo {
@@ -104,7 +86,12 @@ button {
 }
 
 button:disabled {
-    background-color: #b0c4de; /* Dull blue color when disabled */
+    background-color: #3a9bcf; /* Darker blue color when disabled */
+    cursor: default; /* Default cursor when disabled */
+}
+
+#loginButton:disabled {
+    background-color: #3a9bcf; /* Ensure the background color is set for the disabled state */
     cursor: default; /* Default cursor when disabled */
 }
 
@@ -117,9 +104,11 @@ button:disabled {
 }
 
 #loginButton {
-    cursor: pointer; /* Normal cursor when hovering */
+    background-color: #007bff; /* Example color for enabled state */
+    color: white; /* Text color */
+
 }
 
-#loginButton:disabled {
-    cursor: default; /* Default cursor when disabled */
+#loginButton:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }

